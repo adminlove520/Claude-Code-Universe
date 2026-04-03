@@ -45,6 +45,11 @@ Claude-Code-Universe/
 │   ├── codex/                     # OpenAI Codex 实现 (Rust/TS)
 │   └── ai-agent-deep-dive/        # AI Agent 深度分析 PDF
 │
+├── 🦞 龙虾技能 ─────────────────────────────────
+│   └── study-skill/               # claude-code-study Skill（可直接安装）
+│       ├── SKILL.md               # 核心技能定义
+│       └── references/            # 学习计划 + 应用指南 + 进度追踪
+│
 └── 📋 项目文件 ─────────────────────────────────
     ├── README.md                  # 你在这里
     └── SOURCES.md                 # 原始仓库来源
@@ -211,24 +216,111 @@ Phase 7  ▸  工程实践        Day 21-25   启动/UI/遥测 + 全局复盘
 
 ## 🛠️ 快速开始
 
-### 对于 OpenClaw 龙虾
+### 🦞 龙虾安装 Skill
 
-如果你是一只装备了 `claude-code-study` Skill 的龙虾：
+本仓库附带了完整的 `claude-code-study` 学习技能，任何 OpenClaw 龙虾都可以安装使用。
+
+#### 方式一：手动安装（推荐）
+
+**Step 1** — Clone 本仓库
+
+```bash
+git clone https://github.com/adminlove520/Claude-Code-Universe.git
+```
+
+**Step 2** — 将 Skill 复制到你的龙虾技能目录
+
+```bash
+# 安装到单个龙虾（Agent 级别）
+cp -r Claude-Code-Universe/study-skill ~/.accio/accounts/<ACCOUNT_ID>/agents/<AGENT_ID>/agent-core/skills/claude-code-study
+
+# 或安装到所有龙虾（Account 级别，所有 Agent 共享）
+cp -r Claude-Code-Universe/study-skill ~/.accio/accounts/<ACCOUNT_ID>/skills/claude-code-study
+```
+
+> **Windows 路径示例:**
+> ```powershell
+> xcopy "Claude-Code-Universe\study-skill" "%USERPROFILE%\.accio\accounts\<ACCOUNT_ID>\agents\<AGENT_ID>\agent-core\skills\claude-code-study\" /E /I
+> ```
+
+**Step 3** — 确认安装成功
+
+对你的龙虾说 **"今天学什么"** 或 **"学习进度"**，如果龙虾能识别并响应，说明 Skill 安装成功。
+
+#### 方式二：让龙虾自己安装
+
+直接对你的龙虾说：
 
 ```
-"今天学什么"    → 查看当前学习进度和今日任务
-"继续学习"      → 从上次中断处继续自主学习
-"学习进度"      → 显示 7 阶段完成度仪表板
-"同步笔记"      → 将学习成果同步到 Obsidian
-"分析 QueryEngine" → 深入某个子系统
+把 Claude-Code-Universe/study-skill 目录安装为我的 Skill，名字叫 claude-code-study
 ```
 
-### 对于人类读者
+龙虾会自动将文件复制到正确的技能目录。
+
+#### Skill 目录结构
+
+```
+claude-code-study/
+├── SKILL.md                           # 🎯 核心技能文件（触发规则 + 工作流）
+└── references/
+    ├── study-plan.md                  # 📅 7 阶段 25 天学习计划
+    ├── application-guide.md           # 🔧 OpenClaw 应用指南（10 个改进方向）
+    ├── obsidian-workflow.md           # 📝 Obsidian Xknow-Wiki 同步流程
+    ├── source-map.md                  # 🗺️ 仓库交叉引用地图
+    └── progress.json                  # 📊 学习进度追踪
+```
+
+#### 安装后配置
+
+安装后你可能需要调整 `references/obsidian-workflow.md` 中的 Obsidian Vault 路径：
+
+```yaml
+# 默认路径（按需修改为你自己的 Vault 路径）
+Vault 路径: C:\Users\whoami\Obsidian\Xknow-Wiki\
+```
+
+如果你没有使用 Obsidian，龙虾会自动跳过同步步骤，学习笔记会保存在工作区内。
+
+#### 外部仓库配置
+
+学习计划引用了两个外部仓库，建议也 clone 到同一 workspace 下：
+
+```bash
+# 与 Claude-Code-Universe 同级目录
+git clone https://github.com/anthropics/claude-reviews-claude.git
+git clone https://github.com/anthropics/how-claude-code-works.git
+```
+
+如果不 clone 外部仓库，龙虾会自动跳过对应的学习章节，但会影响学习完整度。
+
+---
+
+### 🦞 龙虾使用指南
+
+安装完成后，对龙虾说以下任意一句即可开始学习：
+
+| 指令 | 效果 |
+|:-----|:-----|
+| **"今天学什么"** | 查看当前学习进度和今日任务 |
+| **"继续学习"** | 从上次中断处继续自主学习 |
+| **"学习进度"** | 显示 7 阶段完成度仪表板 |
+| **"同步笔记"** | 将学习成果同步到 Obsidian |
+| **"分析 QueryEngine"** | 深入某个子系统 |
+| **"Phase 3 复盘"** | 执行阶段性复盘 |
+
+> 💡 龙虾也可以 **自主决定学习节奏** — 在空闲时间主动推进，不需要你每天催促。
+
+---
+
+### 📖 对于人类读者
+
+不需要安装 Skill，直接阅读即可：
 
 1. **从概览开始**: 阅读 `claude-reviews-claude` EP00 建立全局观
 2. **深入核心**: 结合 EP01 (QueryEngine) + 源码 `src/QueryEngine.ts`
 3. **对比学习**: 在 `claude-code-sourcemap` / `Claude-code-open` / `claude-code-best` 三个版本间对比
 4. **理论支撑**: 阅读 `harness-books` 理解设计哲学
+5. **学习规划参考**: 查看 [`study-skill/references/study-plan.md`](study-skill/references/study-plan.md) 了解完整学习路线
 
 ---
 
