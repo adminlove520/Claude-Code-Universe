@@ -1,238 +1,307 @@
-# Claude Code 架构深度学习计划 🦞
+<div align="center">
 
-> 集万家之长，深入研究 Claude Code 源码架构
-> 
-> **目标**: 把 Claude Code 的工程智慧应用到 OpenClaw 和 SuperDreams
+# 🦞 Claude Code Universe
 
----
+### 集万家之长，深入研究 Claude Code 源码架构
 
-## 📋 学习目标
+[![GitHub stars](https://img.shields.io/github/stars/adminlove520/Claude-Code-Universe?style=social)](https://github.com/adminlove520/Claude-Code-Universe)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![OpenClaw](https://img.shields.io/badge/Powered%20by-OpenClaw%20🦞-FF6B35)](https://openclaw.ai)
 
-### 核心目标
-1. **理解 Agent 核心循环** — QueryEngine 如何驱动整个系统
-2. **掌握上下文管理** — 记忆、压缩、装配的完整链路
-3. **借鉴会话持久化** — 为 SuperDreams Dream 存储找方案
-4. **学习权限安全** — 7 层纵深防御设计
+**龙虾自主学习 · 源码驱动 · 反哺 OpenClaw**
 
-### 实用目标
-- [ ] EP09 会话持久化 → SuperDreams 梦境存储机制
-- [ ] EP11 压缩系统 → SuperDreams Context 优化
-- [ ] EP07 权限流水线 → OpenClaw 安全加固参考
-- [ ] ByteRover push/pull sync → Control Center 同步设计
+*一个面向所有 OpenClaw 龙虾 Agent 的 Claude Code 架构深度学习仓库*
 
 ---
 
-## 📦 仓库清单
+</div>
 
-### 源码分析 (核心学习源)
+## 🎯 这是什么？
 
+这不是一个普通的源码收集仓库 — 它是 **龙虾自主学习系统** 的学习素材库。
 
-| 仓库/网站 | 说明 | Stars | 章节 | 优先级 |
-|-----------|------|-------|------|--------|
-| [ccunpacked.dev](https://ccunpacked.dev/) | **官网源码地图** - agent loop、50+ tools、未发布功能 | - | 持续更新 | ⭐⭐⭐ |
-| `claude-reviews-claude/` | **Claude 读自己的源码** - 17 章节深度分析 | 1082 | EP00-17 | ⭐⭐⭐ |
-| `how-claude-code-works/` | 中文 12 章节深入解读 | - | CH01-12 | ⭐⭐ |
-| `Claude-code-open-explain/` | 中文 11 章节深度解读 | 156 | 11 篇 | ⭐ |
+我们把 Claude Code 相关的 **8 个核心仓库** 汇聚在一起，配合系统化的 7 阶段学习计划，让每一只 OpenClaw 龙虾都能深入理解世界顶级 AI Agent 的工程架构，并将学到的智慧 **反哺 OpenClaw 自身**。
 
-### 源码实现 (参考实现)
-
-| 仓库 | 说明 | Stars |
-|------|------|-------|
-| `claude-code/` | instructkr Python 移植版 | 65.9k |
-| `claude-code-best/` | CCB TypeScript 完整实现 | 2.7k |
-| `Claude-code-open/` | 原始泄露源码 | - |
-| `claude-code-sourcemap/` | DeepWiki 源码地图 | - |
-
-### 辅助资源
-
-| 仓库 | 说明 | Stars |
-|------|------|-------|
-| `ai-agent-deep-dive/` | AI Agent 深度学习 | 56.2k |
-| `harness-books/` | Harness 书籍集合 | - |
-| `codex/` | 子模块聚合仓库 | - |
+> **设计哲学**: 龙虾自主驱动学习，不等主人催促。学以致用，每个学习单元都必须思考「这对 OpenClaw 意味着什么」。
 
 ---
 
-## 🎯 学习路线图
+## 📦 仓库全景
 
-### Phase 1: 架构概览 (2-3 天)
-**目标**: 建立全局观，理解 Claude Code 是什么
-
-| 顺序 | 资料 | 章节 | 核心问题 |
-|------|------|------|----------|
-| 1 | claude-reviews-claude | EP00 架构总纲 | 17 个子系统是如何组织的？ |
-| 2 | how-claude-code-works | CH01 系统架构概览 | 核心循环是什么？ |
-| 3 | README | 整体浏览 | 我的知识盲区在哪？ |
-
-**输出**: 架构全景图 (Mermaid)
-
----
-
-### Phase 2: 核心循环 (3-4 天) ⭐
-**目标**: 理解 QueryEngine 如何驱动 Agent
-
-| 顺序 | 资料 | 章节 | 核心问题 |
-|------|------|------|----------|
-| 1 | claude-reviews-claude | EP01 查询引擎 | while(true) 循环如何工作？ |
-| 2 | how-claude-code-works | CH02 核心循环 | 12 步状态机是什么？ |
-| 3 | claude-reviews-claude | EP10 上下文装配 | 4 层上下文如何组装？ |
-
-**输出**: QueryEngine 工作流程图 + 伪代码
-
----
-
-### Phase 3: 记忆系统 (3-4 天) ⭐⭐⭐
-**目标**: 掌握会话持久化和压缩系统
-
-| 顺序 | 资料 | 章节 | 核心问题 |
-|------|------|------|----------|
-| 1 | claude-reviews-claude | EP09 会话持久化 | JSONL 如何存储？parent-UUID 链？ |
-| 2 | claude-reviews-claude | EP11 压缩系统 | 三层压缩架构是什么？ |
-| 3 | how-claude-code-works | CH04 上下文管理 | 记忆如何管理？ |
-
-**输出**: 
-- SuperDreams 梦境存储设计方案
-- Context 优化方案
-
----
-
-### Phase 4: 安全权限 (2-3 天) ⭐⭐
-**目标**: 理解 7 层纵深防御
-
-| 顺序 | 资料 | 章节 | 核心问题 |
-|------|------|------|----------|
-| 1 | claude-reviews-claude | EP07 权限流水线 | 7 层防御如何设计？ |
-| 2 | how-claude-code-works | CH03 权限模型 | 规则匹配 → AST 分析 → OS 沙箱？ |
-| 3 | how-claude-code-works | CH10 安全模型 | 如何防止恶意操作？ |
-
-**输出**: OpenClaw 安全加固建议
-
----
-
-### Phase 5: 工具与执行 (2-3 天)
-**目标**: 理解 42+ 工具如何注册和执行
-
-| 顺序 | 资料 | 章节 | 核心问题 |
-|------|------|------|----------|
-| 1 | claude-reviews-claude | EP02 工具系统 | 工具 schema 如何驱动？ |
-| 2 | claude-reviews-claude | EP06 Bash 执行引擎 | 沙箱管理如何实现？ |
-| 3 | claude-reviews-claude | EP05 钩子系统 | PreTool/PostTool 钩子如何工作？ |
-
-**输出**: OpenClaw 工具系统优化建议
-
----
-
-### Phase 6: 扩展系统 (2-3 天)
-**目标**: 理解多 Agent、MCP、插件机制
-
-| 顺序 | 资料 | 章节 | 核心问题 |
-|------|------|------|----------|
-| 1 | claude-reviews-claude | EP08 Swarm 智能体 | 多 Agent 如何协作？ |
-| 2 | claude-reviews-claude | EP04 插件系统 | 1.88 万行代码的插件如何加载？ |
-| 3 | how-claude-code-works | CH06-07 | 多 Agent / MCP 集成？ |
-
-**输出**: SuperDreams Multi-Agent 设计参考
-
----
-
-### Phase 7: 工程实践 (2-3 天)
-**目标**: 学习生产级 Agent 的工程实践
-
-| 顺序 | 资料 | 章节 | 核心问题 |
-|------|------|------|----------|
-| 1 | claude-reviews-claude | EP12 启动引导 | 快速路径级联如何设计？ |
-| 2 | claude-reviews-claude | EP15 服务与 API 层 | 1.2 万行 API 层如何组织？ |
-| 3 | claude-reviews-claude | EP17 遥测隐私 | 双通道遥测如何设计？ |
-| 4 | how-claude-code-works | CH12 | 工程实践建议？ |
-
-**输出**: OpenClaw 工程优化清单
-
----
-
-## 📊 学习进度
-
-| Phase | 名称 | 状态 | 笔记 |
-|------|------|------|------|
-| 1 | 架构概览 | ⬜ 未开始 | - |
-| 2 | 核心循环 | ⬜ 未开始 | - |
-| 3 | 记忆系统 | ⬜ 未开始 | EP09 ⭐ SuperDreams |
-| 4 | 安全权限 | ⬜ 未开始 | - |
-| 5 | 工具与执行 | ⬜ 未开始 | - |
-| 6 | 扩展系统 | ⬜ 未开始 | - |
-| 7 | 工程实践 | ⬜ 未开始 | - |
-
----
-
-## 📝 学习笔记规范
-
-### 每章笔记格式
-
-```markdown
-# EP01: 查询引擎
-
-## 核心概念
-- 概念1
-- 概念2
-
-## 关键设计
-### 设计1
-- 原理: xxx
-- 代码: xxx
-- 启示: xxx
-
-## SuperDreams 借鉴
-- 应用点1
-- 应用点2
-
-## 疑问与思考
-- 疑问1
+```
+Claude-Code-Universe/
+│
+├── 📖 源码分析 ─────────────────────────────────
+│   ├── claude-code-sourcemap/     # v2.1.88 原始源码还原 (1,602 src files) ⭐首要参考
+│   ├── Claude-code-open/          # 另一版源码还原
+│   ├── claude-code-best/          # CCB 增强版 (daemon/ssh/proactive)
+│   └── claude-code/               # Python 移植版 (by instructkr)
+│
+├── 📚 深度解读 ─────────────────────────────────
+│   ├── Claude-code-open-explain/  # 12 章中文深度解读 (00-11)
+│   └── harness-books/             # Harness Engineering 理论书籍 (2册)
+│
+├── 🔬 对比研究 ─────────────────────────────────
+│   ├── codex/                     # OpenAI Codex 实现 (Rust/TS)
+│   └── ai-agent-deep-dive/        # AI Agent 深度分析 PDF
+│
+└── 📋 项目文件 ─────────────────────────────────
+    ├── README.md                  # 你在这里
+    └── SOURCES.md                 # 原始仓库来源
 ```
 
-### 笔记输出位置
-- Obsidian: `04-AI学习/Claude架构/EP01-查询引擎.md`
-- 记忆文件: `memory/lessons/claude-ep01.md`
+### 外部配套仓库
+
+| 仓库 | 章节 | 说明 |
+|:-----|:-----|:-----|
+| [`claude-reviews-claude`](https://github.com/anthropics/claude-reviews-claude) | EP00-17 (18 章) | Claude 自己审视自己的源码 |
+| [`how-claude-code-works`](https://github.com/anthropics/how-claude-code-works) | CH01-12 (14 章) | 中文深入解读系列 |
 
 ---
 
-## 🛠️ 工具配置
+## 🗂️ 仓库详情
 
-### ByteRover CLI (brv)
-- **版本**: 2.6.0
-- **命令**: `brv`
-- **用途**: AI coding agents 的持久化记忆层
-- **借鉴**: push/pull sync 协议、Context tree 结构
+### 源码实现
 
-### Claude Code Skills 清单
-- **位置**: `codex/CLAUDE-CODE-SKILLS.xlsx`
-- **内容**: 社区整理的 Claude Code Skills
+| 仓库 | 语言 | 亮点 | 适合场景 |
+|:-----|:-----|:-----|:---------|
+| **claude-code-sourcemap** | TypeScript | v2.1.88 完整源码，1,602 个 src 文件 | 精确分析每一行实现 |
+| **Claude-code-open** | TypeScript | 与 sourcemap 结构一致的还原版 | 交叉验证 |
+| **claude-code-best** | TypeScript | CCB 增强版，含 daemon/ssh/proactive | 学习高级特性扩展 |
+| **claude-code** (Python) | Python | instructkr 的 Python 重写 | 理解架构本质，剥离语言干扰 |
 
----
+### 分析资料
 
-## 📚 参考资源
+| 仓库 | 内容 | 章节数 | 特色 |
+|:-----|:-----|:-------|:-----|
+| **Claude-code-open-explain** | 中文深度解读 | 12 章 | 覆盖系统全貌，每章是目录 |
+| **harness-books** | Harness Engineering 理论 | 2 册 | 设计哲学 + Claude vs Codex 对比 |
+| **ai-agent-deep-dive** | AI Agent 分析报告 | PDF | 行业宏观视角 |
 
-### 官方文档
-- [OpenClaw 官方文档](https://docs.openclaw.ai)
-- [Claude Code 官方](https://docs.anthropic.com/en/docs/claude-code)
+### 对比参考
 
-### 小溪笔记
-- [Claude 架构学习笔记](Obsidian: 04-AI学习/Claude架构/)
-- [AI Agent 深度学习笔记](Obsidian: 04-AI学习/)
-- [Harness 书籍笔记](Obsidian: 04-AI学习/Harness/)
-
-### 外部资源
-- [ByteRover CLI](https://github.com/campfirein/byterover-cli) - 记忆层参考
-- [Anthropic AI Academy](https://anthropic.skilljar.com/) - 官方课程
+| 仓库 | 语言 | 用途 |
+|:-----|:-----|:-----|
+| **codex** | Rust + TypeScript | OpenAI Codex 实现，用于架构对比学习 |
 
 ---
 
-## 🦞 小溪学习准则
+## 🦞 龙虾学习计划
 
-1. **带着问题读** — 每章开始前先想好要回答什么问题
-2. **输出驱动** — 每读一章必须产出笔记或图
-3. **联系实际** — 思考如何应用到 OpenClaw / SuperDreams
-4. **先框架后细节** — 先理解架构，再深入代码
-5. **定期复盘** — 每 Phase 结束做总结
+### 自主学习 · 7 阶段 · 25 天
+
+这是一个 **龙虾自主驱动** 的学习计划。龙虾主动安排学习进度，主动推进，不依赖主人催促。
+
+```
+Phase 1  ▸  架构概览        Day 1-3     建立全局观
+Phase 2  ▸  核心循环 ⭐     Day 4-7     QueryEngine + Context
+Phase 3  ▸  记忆系统 ⭐⭐⭐  Day 8-11    Session + Compact + Memory
+Phase 4  ▸  安全权限 ⭐⭐    Day 12-14   7 层纵深防御
+Phase 5  ▸  工具与执行       Day 15-17   42+ Tools + Hooks
+Phase 6  ▸  扩展系统        Day 18-20   Multi-Agent + MCP
+Phase 7  ▸  工程实践        Day 21-25   启动/UI/遥测 + 全局复盘
+```
+
+### 每阶段产出
+
+| Phase | 学习主题 | OpenClaw 应用产出 |
+|:------|:---------|:-----------------|
+| 1 | 架构概览 | 架构全景图 + 组织方式借鉴 |
+| 2 | 核心循环 | Agent Loop 优化方案 |
+| 3 | 记忆系统 | **记忆架构升级方案** |
+| 4 | 安全权限 | **分层安全加固方案** |
+| 5 | 工具与执行 | 工具系统优化建议 |
+| 6 | 扩展系统 | 多 Agent 协作方案 |
+| 7 | 工程实践 | **OpenClaw 全局优化清单** |
+
+> 每个学习单元必须产出对 OpenClaw 的具体应用借鉴 — 不是泛泛的"参考"，而是可执行的改进建议。
 
 ---
 
-> 💡 提示：所有仓库已完整 clone，在 DMCA 删除前成功备份！
+## 🔍 子系统速查
+
+快速定位 Claude Code 核心子系统的学习资料：
+
+<details>
+<summary><b>Agent Loop / QueryEngine</b> — 核心循环</summary>
+
+| 类型 | 资料路径 |
+|:-----|:---------|
+| 解读 | `claude-reviews-claude` EP01 / `how-claude-code-works` CH02 |
+| 源码 | `claude-code-sourcemap/restored-src/src/QueryEngine.ts` |
+| 中文 | `Claude-code-open-explain/02-Agentic-Loop/` |
+| Python | `claude-code/src/query_engine.py` |
+
+</details>
+
+<details>
+<summary><b>Context / System Prompt</b> — 上下文管理</summary>
+
+| 类型 | 资料路径 |
+|:-----|:---------|
+| 解读 | `claude-reviews-claude` EP10 / `how-claude-code-works` CH03 |
+| 源码 | `src/prompts.ts` / `src/context.ts` |
+| 中文 | `Claude-code-open-explain/01-System-Prompt/` |
+| 理论 | `harness-books/book1-claude-code/chapter-02-prompt-is-control-plane.md` |
+
+</details>
+
+<details>
+<summary><b>Tool System</b> — 42+ 工具</summary>
+
+| 类型 | 资料路径 |
+|:-----|:---------|
+| 解读 | `claude-reviews-claude` EP02 / `how-claude-code-works` CH04 |
+| 源码 | `src/Tool.ts` + `src/tools.ts` + `src/tools/` |
+| 钩子 | `claude-reviews-claude` EP05 |
+
+</details>
+
+<details>
+<summary><b>Permission / Security</b> — 7 层防御</summary>
+
+| 类型 | 资料路径 |
+|:-----|:---------|
+| 解读 | `claude-reviews-claude` EP07 / `how-claude-code-works` CH10 |
+| 源码 | `src/utils/permissions/` (6000+ LOC) |
+| 沙箱 | `claude-reviews-claude` EP06 |
+
+</details>
+
+<details>
+<summary><b>Memory / Session</b> — 记忆系统</summary>
+
+| 类型 | 资料路径 |
+|:-----|:---------|
+| 解读 | `claude-reviews-claude` EP09/EP11 / `how-claude-code-works` CH08 |
+| 源码 | `src/assistant/sessionHistory.ts` + `src/memdir/` |
+
+</details>
+
+<details>
+<summary><b>Multi-Agent / MCP</b> — 扩展系统</summary>
+
+| 类型 | 资料路径 |
+|:-----|:---------|
+| 解读 | `claude-reviews-claude` EP08/EP04 / `how-claude-code-works` CH07 |
+| 源码 | `src/tools/AgentTool/` + `src/services/mcp/` |
+| Codex | `codex/codex-rs/core/src/` |
+
+</details>
+
+---
+
+## 📊 版本对照矩阵
+
+| 模块 | sourcemap (原始) | Open (还原) | Best (增强) | Python (移植) |
+|:-----|:-----:|:-----:|:-----:|:-----:|
+| QueryEngine | ✅ | ✅ | ✅+ | ✅ |
+| Tool System (42+) | ✅ | ✅ | ✅+ | ✅ |
+| Permissions (6K LOC) | ✅ | ✅ | ✅+ | ✅ |
+| MCP | ✅ | ✅ | ✅ | ✅ |
+| Session | ✅ | ✅ | ✅+ | ✅ |
+| Daemon | ❌ | ❌ | ✅ | ❌ |
+| SSH | ❌ | ❌ | ✅ | ❌ |
+| Proactive | ❌ | ❌ | ✅ | ❌ |
+| Bridge | 基础 | 基础 | ✅+ | ❌ |
+
+> ✅+ 表示在原始基础上有增强实现
+
+---
+
+## 🛠️ 快速开始
+
+### 对于 OpenClaw 龙虾
+
+如果你是一只装备了 `claude-code-study` Skill 的龙虾：
+
+```
+"今天学什么"    → 查看当前学习进度和今日任务
+"继续学习"      → 从上次中断处继续自主学习
+"学习进度"      → 显示 7 阶段完成度仪表板
+"同步笔记"      → 将学习成果同步到 Obsidian
+"分析 QueryEngine" → 深入某个子系统
+```
+
+### 对于人类读者
+
+1. **从概览开始**: 阅读 `claude-reviews-claude` EP00 建立全局观
+2. **深入核心**: 结合 EP01 (QueryEngine) + 源码 `src/QueryEngine.ts`
+3. **对比学习**: 在 `claude-code-sourcemap` / `Claude-code-open` / `claude-code-best` 三个版本间对比
+4. **理论支撑**: 阅读 `harness-books` 理解设计哲学
+
+---
+
+## 🧭 学习准则
+
+```
+🦞 龙虾精神
+
+  1. 自主驱动 ── 不等催促，主动安排学习
+  2. 带着问题读 ── 每章开始前列出核心问题
+  3. 输出驱动 ── 读了就要写，不允许只读不产出
+  4. 源码验证 ── 理论必须在代码中找到对应
+  5. 反哺 OpenClaw ── 每个设计都要思考应用价值
+  6. 跨版本对比 ── 多角度理解同一设计
+  7. 面向所有龙虾 ── 笔记写得清晰，让后来者受益
+```
+
+---
+
+## 📋 资料完整度
+
+### claude-reviews-claude (18 章)
+
+| EP | 主题 | EP | 主题 |
+|:---|:-----|:---|:-----|
+| 00 | 架构总纲 | 09 | 会话持久化 |
+| 01 | 查询引擎 | 10 | 上下文装配 |
+| 02 | 工具系统 | 11 | 压缩系统 |
+| 03 | 协调器 | 12 | 启动引导 |
+| 04 | 插件系统 | 13 | Bridge 系统 |
+| 05 | 钩子系统 | 14 | UI 状态管理 |
+| 06 | Bash 引擎 | 15 | 服务 API 层 |
+| 07 | 权限流水线 | 16 | 基础设施配置 |
+| 08 | Swarm 智能体 | 17 | 遥测隐私 |
+
+### how-claude-code-works (14 章)
+
+| CH | 主题 | CH | 主题 |
+|:---|:-----|:---|:-----|
+| 01 | 系统概览 | 08 | 记忆系统 |
+| 02 | Agent Loop | 09 | Skills 系统 |
+| 03 | Context Engineering | 10 | 权限与安全 |
+| 04 | 工具系统 | 11 | 用户体验 |
+| 05 | 代码编辑策略 | 12 | 最小化组件 |
+| 06 | Hooks 可扩展性 | - | Quick Start |
+| 07 | 多 Agent | - | Reference |
+
+### Claude-code-open-explain (12 章)
+
+`00-overview` → `01-system-prompt` → `02-agentic-loop` → `03-tool-system` → `04-permission-model` → `05-context-management` → `06-prompt-caching` → `07-multi-agent` → `08-mcp-integration` → `09-startup-optimization` → `10-feature-flags` → `11-security`
+
+---
+
+## ⚠️ 注意事项
+
+- **路径大小写**: `Claude-code-open` (大写 C) vs `claude-code-best` (小写 c)
+- **目录结构**: `Claude-code-open-explain` 的章节是 **目录**（内含 README.md），不是单文件
+- **外部仓库**: `claude-reviews-claude` 章节在 `docs/chapters/` 下，不在根目录
+- **无 submodules**: 所有子仓库都是平铺目录，没有 `.gitmodules`
+- **大文件已排除**: `cli.js`(12.5MB) / `cli.js.map`(57MB) / `.tgz`(30MB) 已在 .gitignore 中排除
+
+---
+
+<div align="center">
+
+### 🦞
+
+**Built with love by OpenClaw Lobsters**
+
+*学习的目的不是积累知识，而是让 OpenClaw 变得更好。*
+
+---
+
+[OpenClaw](https://openclaw.ai) · [Report Issues](https://github.com/adminlove520/Claude-Code-Universe/issues)
+
+</div>
