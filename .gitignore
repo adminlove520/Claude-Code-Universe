@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+.yarn/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
+# Build
+dist/
+build/
+out/
+.next/
+target/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Rust
+target/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Large binary/archive files (keep repo under GitHub limits)
+*.tgz
+*.tar.gz
+*.exe
+
+# Sourcemap bundle (too large, we keep restored-src/ instead)
+claude-code-sourcemap/package/cli.js
+claude-code-sourcemap/package/cli.js.map
+
+# Temp
+*.tmp
+*.bak
+_exploration/

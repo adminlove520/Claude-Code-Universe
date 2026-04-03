@@ -1,0 +1,85 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install PDF export dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            pandoc \
+            librsvg2-bin \
+            fonts-noto-cjk \
+            fonts-noto-core \
+            texlive-latex-extra \
+            texlive-xetex \
+            texlive-lang-chinese
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build book1 website
+        run: |
+          cd book1-claude-code
+          npx --yes honkit build . _book
+
+      - name: Build book2 website
+        run: |
+          cd book2-comparing
+          npx --yes honkit build . _book
+
+      - name: Export PDFs
+        env:
+          PDF_MAINFONT: Noto Serif CJK SC
+          PDF_CJK_MAINFONT: Noto Serif CJK SC
+          PDF_MONOFONT: Noto Sans Mono
+        run: |
+          python3 tools/book-kit/export_pdf.py book1-claude-code
+          python3 tools/book-kit/export_pdf.py book2-comparing
+
+      - name: Assemble unified Pages site
+        env:
+          SITE_URL: https://harness-books.agentway.dev
+          CUSTOM_DOMAIN: harness-books.agentway.dev
+        run: python3 tools/book-kit/build_pages_site.py
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
