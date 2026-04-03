@@ -1,0 +1,78 @@
+{
+  "current_phase": 1,
+  "current_day": 1,
+  "started_at": "2026-04-03",
+  "last_updated": "2026-04-03",
+  "phases": {
+    "1": {
+      "name": "架构概览",
+      "status": "not_started",
+      "days": {
+        "1": { "status": "not_started", "title": "全景鸟瞰", "note_path": null },
+        "2": { "status": "not_started", "title": "Harness 哲学", "note_path": null },
+        "3": { "status": "not_started", "title": "源码地形图", "note_path": null }
+      }
+    },
+    "2": {
+      "name": "核心循环",
+      "status": "not_started",
+      "days": {
+        "4": { "status": "not_started", "title": "QueryEngine 解剖", "note_path": null },
+        "5": { "status": "not_started", "title": "上下文装配", "note_path": null },
+        "6": { "status": "not_started", "title": "System Prompt 深度", "note_path": null },
+        "7": { "status": "not_started", "title": "核心循环复盘 + OpenClaw 应用", "note_path": null }
+      }
+    },
+    "3": {
+      "name": "记忆系统",
+      "status": "not_started",
+      "days": {
+        "8": { "status": "not_started", "title": "会话持久化", "note_path": null },
+        "9": { "status": "not_started", "title": "压缩系统", "note_path": null },
+        "10": { "status": "not_started", "title": "Memory 文件系统", "note_path": null },
+        "11": { "status": "not_started", "title": "OpenClaw 记忆架构设计", "note_path": null }
+      }
+    },
+    "4": {
+      "name": "安全权限",
+      "status": "not_started",
+      "days": {
+        "12": { "status": "not_started", "title": "权限流水线", "note_path": null },
+        "13": { "status": "not_started", "title": "沙箱安全", "note_path": null },
+        "14": { "status": "not_started", "title": "OpenClaw 安全加固方案", "note_path": null }
+      }
+    },
+    "5": {
+      "name": "工具与执行",
+      "status": "not_started",
+      "days": {
+        "15": { "status": "not_started", "title": "工具系统架构", "note_path": null },
+        "16": { "status": "not_started", "title": "钩子与编辑策略", "note_path": null },
+        "17": { "status": "not_started", "title": "OpenClaw 工具优化", "note_path": null }
+      }
+    },
+    "6": {
+      "name": "扩展系统",
+      "status": "not_started",
+      "days": {
+        "18": { "status": "not_started", "title": "Multi-Agent 协作", "note_path": null },
+        "19": { "status": "not_started", "title": "MCP + 插件系统", "note_path": null },
+        "20": { "status": "not_started", "title": "OpenClaw 多 Agent 设计", "note_path": null }
+      }
+    },
+    "7": {
+      "name": "工程实践",
+      "status": "not_started",
+      "days": {
+        "21": { "status": "not_started", "title": "启动引导 + Bridge", "note_path": null },
+        "22": { "status": "not_started", "title": "UI + 服务层", "note_path": null },
+        "23": { "status": "not_started", "title": "基础设施 + 遥测", "note_path": null },
+        "24": { "status": "not_started", "title": "Codex 对比专题", "note_path": null },
+        "25": { "status": "not_started", "title": "全局复盘 + OpenClaw 行动计划", "note_path": null }
+      }
+    }
+  },
+  "notes_synced": [],
+  "open_questions": [],
+  "key_discoveries": []
+}
