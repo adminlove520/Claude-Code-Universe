@@ -1,15 +1,15 @@
 {
   "current_phase": 1,
-  "current_day": 1,
+  "current_day": 2,
   "started_at": "2026-04-03",
-  "last_updated": "2026-04-03",
+  "last_updated": "2026-04-30",
   "phases": {
     "1": {
       "name": "架构概览",
-      "status": "not_started",
+      "status": "in_progress",
       "days": {
-        "1": { "status": "not_started", "title": "全景鸟瞰", "note_path": null },
-        "2": { "status": "not_started", "title": "Harness 哲学", "note_path": null },
+        "1": { "status": "completed", "title": "全景鸟瞰", "note_path": null },
+        "2": { "status": "in_progress", "title": "Harness 哲学", "note_path": null, "supplementary_materials": ["walkinglabs/learn-harness-engineering"] },
         "3": { "status": "not_started", "title": "源码地形图", "note_path": null }
       }
     },
@@ -74,5 +74,40 @@
   },
   "notes_synced": [],
   "open_questions": [],
-  "key_discoveries": []
+  "key_discoveries": [
+    {
+      "date": "2026-04-30",
+      "source": "walkinglabs/learn-harness-engineering",
+      "title": "五层防御体系",
+      "summary": "任务规范 → 上下文供给 → 执行环境 → 验证反馈 → 状态管理。遇到失败先查 Harness 再换模型。"
+    },
+    {
+      "date": "2026-04-30",
+      "source": "walkinglabs/learn-harness-engineering", 
+      "title": "验证缺口是关键",
+      "summary": "Agent 说'做完了'不等于真的做完了。必须建立显式的验证手段（完成定义）。"
+    },
+    {
+      "date": "2026-04-30",
+      "source": "walkinglabs/learn-harness-engineering",
+      "title": "诊断循环方法论",
+      "summary": "失败 → 归因到层 → 修补那一层 → 重新执行。不要笼统说'模型不行'。"
+    }
+  ],
+  "supplementary_resources": [
+    {
+      "name": "walkinglabs/learn-harness-engineering",
+      "url": "https://walkinglabs.github.io/learn-harness-engineering/zh/",
+      "type": "course",
+      "relevance": "Harness Engineering 核心理论",
+      "used_for": "Phase 1 Day 2 (Harness哲学), Phase 7 工程实践"
+    },
+    {
+      "name": "harness-creator skill",
+      "url": "https://github.com/adminlove520/xiaoxi-skills/tree/main/harness-creator",
+      "type": "skill",
+      "relevance": "快速创建生产级 Harness 脚手架",
+      "used_for": "任何新项目开工前"
+    }
+  ]
 }

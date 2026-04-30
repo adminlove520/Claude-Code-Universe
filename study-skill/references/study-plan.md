@@ -43,7 +43,10 @@
 |------|------|----------|
 | 1 | `harness-books/book1-claude-code/chapter-01-why-harness-engineering.md` | 为什么 AI Agent 需要"缰绳"？|
 | 2 | `harness-books/book1-claude-code/chapter-02-prompt-is-control-plane.md` | System Prompt 为何是"控制面"而非"人设"？|
-| 3 | `harness-books/book2-comparing/` 浏览目录 | Claude Code vs Codex 的设计差异 |
+| 3 | **`walkinglabs/learn-harness-engineering` L01** | 模型能力强，不等于执行可靠。五层防御体系。 |
+| 4 | `harness-books/book2-comparing/` 浏览目录 | Claude Code vs Codex 的设计差异 |
+
+**补充学习**: [Harness Engineering 教程](https://walkinglabs.github.io/learn-harness-engineering/zh/) — 基于 OpenAI 和 Anthropic 官方资料的系统课程
 
 **输出**: `Phase1/Day2-Harness哲学.md` — Harness Engineering 核心理念总结
 
@@ -329,6 +332,14 @@
 ## 进度追踪
 
 进度存储在 `references/progress.json`，龙虾在每次学习开始和结束时自主更新。
+
+---
+
+## 补充资源
+
+| 资源 | URL | 类型 | 用途 |
+|------|-----|------|------|
+| walkinglabs/learn-harness-engineering | https://walkinglabs.github.io/learn-harness-engineering/zh/ | 官方课程 | Harness Engineering 系统课程（OpenAI+Anthropic 官方参考资料）|
 
 ---
 

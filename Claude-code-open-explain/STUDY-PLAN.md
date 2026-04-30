@@ -69,7 +69,7 @@
 - [x] 00-overview
 - [x] 01-system-prompt
 - [x] 02-agentic-loop
-- [ ] 03-tool-system
+- [x] 03-tool-system
 - [ ] 04-permission-model
 - [ ] 05-context-management
 - [ ] 06-prompt-caching
